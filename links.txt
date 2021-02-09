@@ -1,0 +1,18 @@
+npm i -g browser-sync  parcel-bundler
+
+
+---- ES 2021 
+https://tc39.es/ecma262
+https://tc39.es/ecma262/#sec-scope
+
+
+-------- Event Loop 
+https://www.youtube.com/watch?v=cCOL7MC4Pl0&t=265s
+https://www.youtube.com/watch?v=8aGhZQkoFbQ&t=734s
+
+
+----  Типы 
+https://tc39.es/ecma262/#sec-ecmascript-data-types-and-values
+
+8 ECMAScript language types are 
+Undefined, Null, Boolean, String, Symbol, Number, BigInt, Object
