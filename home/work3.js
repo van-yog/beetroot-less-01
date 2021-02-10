@@ -13,7 +13,22 @@ const ob = {
 */
 
 function bind(ob, fn) {
-  // todo
+  let args = [].slice.call(arguments, 2);
+  ob.fn = fn;
+  return function () {
+    let argsSecond = [].slice.call(arguments);
+    let arr = args.concat(argsSecond);
+    if (arr.length < 3) {
+      console.error("Need more arguments");
+      return;
+    }
+    ob.fn(arr[0], arr[1], arr[2]);
+  };
+}
+
+function bind(ob, fn, ...rest1) {
+  ob.fn = fn;
+  return (...rest2) => ob.fn(...rest1, ...rest2);
 }
 
 bind(ob, doMath, 1, 2, 3)(); // Bill adds 6

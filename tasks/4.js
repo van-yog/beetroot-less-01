@@ -10,3 +10,16 @@
 4. Вызвать функцию setName() и передать ей в качестве аргумента объект person
 5. Вывести в консоль значение свойства firstName объекта person
 */
+
+let person = {
+  firstName: "Paul",
+};
+
+function setName(ob) {
+  ob = {};
+  ob.firstName = "Bill";
+}
+
+console.log("person.firstName = ", person.firstName);
+setName(person);
+console.log("person.firstName = ", person.firstName);

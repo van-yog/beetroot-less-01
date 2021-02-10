@@ -45,5 +45,5 @@ for (let value in grouped) {
 
 usersSelect.addEventListener("change", (e) => {
   let value = +e.target.value;
-  res.innerHTML = value ? grouped[value] : "Вы не выбрали значение";
+  res.innerHTML = value ? grouped[value].join("<br>") : "No selected age group";
 });

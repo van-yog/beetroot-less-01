@@ -117,85 +117,67 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"home/work2.js":[function(require,module,exports) {
-/*
-1.  В элемент select вывести сгруппированный возраст  пользователей
-То есть у нас 9 пользователей и их возраст 20, 30, 40
-Элемент select должен получится таким
+})({"home/work3.js":[function(require,module,exports) {
+function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-only"); }
 
-<select>
-    <option value="-1">Choose age</option>
-    <option value="20">20</option>
-    <option value="30">30</option>
-    <option value="40">40</option>
-</select>
-
-2. При выборе соответствующего option осуществить вывод
-   пользователей соответствующих выбранному возрасту
-   в элемент <div id="res"></div>
-То есть при выборе например 20 должны вывестись  John, Ashley, Willy
-*/
-var grouped = {};
-var usersSelect = document.getElementById("users-select");
-var res = document.getElementById("res");
-var users = [{
-  id: 1,
-  name: "John",
-  age: "20"
-}, {
-  id: 2,
-  name: "Sasha",
-  age: "30"
-}, {
-  id: 3,
-  name: "Bill",
-  age: "40"
-}, {
-  id: 4,
-  name: "Ashley",
-  age: "20"
-}, {
-  id: 5,
-  name: "Rachel",
-  age: "40"
-}, {
-  id: 6,
-  name: "Tom",
-  age: "30"
-}, {
-  id: 7,
-  name: "Steve",
-  age: "30"
-}, {
-  id: 8,
-  name: "Jim",
-  age: "40"
-}, {
-  id: 9,
-  name: "Willy",
-  age: "20"
-}];
-users.forEach(function (_ref) {
-  var age = _ref.age,
-      name = _ref.name;
-  return grouped[age] = !grouped[age] ? [name] : grouped[age].concat([name]);
-});
-console.log(grouped);
-usersSelect.innerHTML = '<option value="0">Choose age</option>';
-
-for (var value in grouped) {
-  usersSelect.innerHTML += "<option value=\"".concat(value, "\">").concat(value, "</option>");
+function doMath(a, b, c) {
+  console.log("".concat(this.firstName, " adds ").concat(a + b + c));
 }
 
-usersSelect.addEventListener("change", function (e) {
-  var value = +e.target.value;
-  res.innerHTML = value ? grouped[value] : "Вы не выбрали значение";
-});
+var ob = {
+  firstName: "Bill"
+};
+/*
+Реализовать функцию bind которая будет возвращать
+нижеприведенный результат
+Создать 2 реализации - с использованием ES 5, и ES 6 
+*/
+
+function bind(ob, fn) {
+  var args = [].slice.call(arguments, 2);
+  ob.fn = fn;
+  return function () {
+    var argsSecond = [].slice.call(arguments);
+    var arr = args.concat(argsSecond);
+
+    if (arr.length < 3) {
+      console.error("Need more arguments");
+      return;
+    }
+
+    ob.fn(arr[0], arr[1], arr[2]);
+  };
+}
+
+function bind(ob, fn) {
+  for (var _len = arguments.length, rest1 = new Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    rest1[_key - 2] = arguments[_key];
+  }
+
+  ob.fn = fn;
+  return function () {
+    for (var _len2 = arguments.length, rest2 = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+      rest2[_key2] = arguments[_key2];
+    }
+
+    return ob.fn.apply(ob, rest1.concat(rest2));
+  };
+}
+
+bind(ob, doMath, 1, 2, 3)(); // Bill adds 6
+
+bind(ob, doMath)(1, 2, 3); // Bill adds 6
+
+bind(ob, doMath, 1)(2, 3); // Bill adds 6
+
+bind(ob, doMath, 1, 2)(3); // Bill adds 6
+
+bind(ob, doMath, 1, 2, 3)(4, 5, 6); // Bill adds 6
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
-require("./home/work2");
-},{"./home/work2":"home/work2.js"}],"C:/Users/Администратор/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+require("./home/work3");
+},{"./home/work3":"home/work3.js"}],"C:/Users/Администратор/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -223,7 +205,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64093" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58234" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
