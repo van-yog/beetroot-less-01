@@ -5,7 +5,7 @@
 // 2. Вывести элементы трансформированного массива в ul с id="list"
 // Вывод должен осуществляться в отсортированном по алфавиту виде
 
-let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
+let arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "ashley"];
 const list = document.getElementById("list");
 
 list.innerHTML = map(arr, createList).sort().join("");

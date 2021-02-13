@@ -124,7 +124,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // "<li class="list-group-item">Tom</li>"
 // 2. Вывести элементы трансформированного массива в ul с id="list"
 // Вывод должен осуществляться в отсортированном по алфавиту виде
-var arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "Ashley"];
+var arr = ["Tom", "Steve", "Bill", "Rita", "Pete", "ashley"];
 var list = document.getElementById("list");
 list.innerHTML = map(arr, createList).sort().join(""); // Сигнатура map
 
@@ -169,7 +169,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58234" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51934" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
